@@ -1,0 +1,80 @@
+body {
+     max-height: 100%;
+     overflow: hidden;
+}
+
+.header {
+     background: none repeat scroll 0% 0% #777777;
+     height: 50px;
+     left: 0px;
+     overflow: hidden;
+     padding: 0px;
+     position: absolute;
+     top: 0px;
+     width: 100%;
+}
+
+.player {
+     background: none repeat scroll 0% 0% #555555;
+     height: 75px;
+     left: 0px;
+     overflow: hidden;
+     padding: 0px;
+     position: absolute;
+     top: 50px;
+     width: 300px;
+}
+
+.playlists {
+     bottom: 50%;
+     left: 0px;
+     overflow: auto;
+     padding: 0px;
+     position: fixed;
+     top: 125px;
+     width: 300px;
+    margin-bottom: 25px;
+}
+
+.tracklist {
+     bottom: 50%;
+     left: 300px;
+     overflow: auto;
+     padding: 0px;
+     position: absolute;
+     right: 0px;
+     top: 50px;
+     margin-bottom: 25px;
+}
+
+.input {
+     background-color: #CCCCCC;
+     bottom: 50%;
+     left: 0pt;
+     min-height: 25px;
+     position: fixed;
+     right: 0pt;
+}
+
+.search {
+     bottom: 0px;
+     left: 300px;
+     overflow: auto;
+     position: fixed;
+     right: 0px;
+     top: 50%;
+}
+
+.search .aggregates {
+     background-color: #DDDDDD;
+     bottom: 0px;
+     left: 0px;
+     position: relative;
+}
+
+.search .results {
+     background: none repeat scroll 0% 0% #EEEEEE;
+     left: 0px;
+     position: relative;
+     right: 0px;
+}

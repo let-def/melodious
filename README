@@ -1,0 +1,65 @@
+Melodious media player
+======================
+
+Melodious is a personal media player, playing music from your HTML5-compliant web browser.mp
+
+
+While under heavy development, it is already usable and has been tested in Opera, Firefox and various webkit-powered mobile browsers.
+
+
+Melodious is coded in [Ocaml](http://caml.inria.fr), using the [Ocsigen framework](http://ocsigen.org).
+This project is distributed WITHOUT ANY WARRANTY under the AGPLv3 license, see LICENSE file.
+
+Installation
+------------
+
+Melodious requires Ocsigen ≥2.0.2 and Ocaml-Sqlite3. Your SQLite3 library should have been compiled with enhanced parenthesis syntax (seems to not be the default in Debian squeeze).
+
+
+Adjust Makefile.config, only STATICDIR variable can be set at the moment. This is the directory where Makefile shall put static files to be served, that is javascript code and style sheets.
+
+~~~ { .shell }
+  $ make
+  $ # su if needed for installation
+  $ make install
+~~~
+
+Then add the following to your ocsigen server configuration, after adjusting pathes:
+
+~~~ { .xml }
+  <eliom module="$SCRIPTDIR/melodious.cma">
+    <repository path="$DATADIR" />
+    <datapase path="$DBFILE.sqlite" />
+  </eliom>
+~~~
+
+$SCRIPTDIR can be anywhere you want, just be sure that it contains "melodious.cma".
+See "melodious.conf.sample" for a basic configuration.
+
+
+Configuration
+-------------
+
+The design behind Melodious media database is split in two part : the repositories and the database. Repositories are used to serve raw media content, while database indexes all metadata.
+
+~~~ { .xml }
+  <repository path="/var/lib/melodious/repo" />
+~~~
+
+Since the only repository available at the moment stores all uploaded files in a local directory, all files served by melodious have to be uploaded to the running instance first. This directory can be changed with the path attribute from repository element.
+
+~~~ { .xml }
+  <datapase path="/var/lib/melodious/metadata.sqlite" />
+~~~
+
+Metadata are stored in a SQLite database file, pointed to by the path attribute from the database element.
+
+Tools and hack
+--------------
+
+There is no proper way to administrate a running instance. You can use "tools/upload.sh" to upload new resources. "tools/dump_tags.sh" and "tools/from_json.ml" can be used to tweak tags database, though they are not user-friendly and rely on internal database schema.
+
+ROADMAP
+=======
+
+FIXME :)
